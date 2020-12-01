@@ -783,12 +783,12 @@ __metadata:
   linkType: hard
 
 "@types/jest@npm:26.x, @types/jest@npm:^26.0.15":
-  version: 26.0.15
-  resolution: "@types/jest@npm:26.0.15"
+  version: 26.0.16
+  resolution: "@types/jest@npm:26.0.16"
   dependencies:
     jest-diff: ^26.0.0
     pretty-format: ^26.0.0
-  checksum: 42fe39d582de1d79f9d6b96f3dee43ba2e9336c9d1f0e31c4f2f58bbaa059c9f4295c42a213ea9450f91400515a3abde4aae2673522fc6e11ea33f7e21c25dbe
+  checksum: 0c94186cdff943479d9ca169abc412617042eceb5427fc1394d1e23c18a99b61ba502ce4cf9160e8bc400606e9f36cc1cae91f36e329db85c623201efdc1b8f2
   languageName: node
   linkType: hard
 
@@ -4269,6 +4269,16 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
+"lru-cache@npm:^4.1.5":
+  version: 4.1.5
+  resolution: "lru-cache@npm:4.1.5"
+  dependencies:
+    pseudomap: ^1.0.2
+    yallist: ^2.1.2
+  checksum: 6a098d23629357451d4324e1e4fefccdd6df316df29e25571c6148220ced923258381ebeafdf919f90e28c780b650427390582618c1d5fe097873e656d062511
+  languageName: node
+  linkType: hard
+
 "make-dir@npm:^3.0.0":
   version: 3.1.0
   resolution: "make-dir@npm:3.1.0"
@@ -5041,6 +5051,13 @@ fsevents@^2.1.2:
   languageName: node
   linkType: hard
 
+"pseudomap@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "pseudomap@npm:1.0.2"
+  checksum: 1ad1802645e830d99f9c1db97efc6902d2316b660454633229f636dd59e751d00498dd325d3b18d49f2be990a2c9d28f8bfe6f9b544a8220a5faa2bfb4694bb7
+  languageName: node
+  linkType: hard
+
 "psl@npm:^1.1.28":
   version: 1.8.0
   resolution: "psl@npm:1.8.0"
@@ -5423,11 +5440,13 @@ fsevents@^2.1.2:
   linkType: hard
 
 "semver@npm:7.x, semver@npm:^7.1.2, semver@npm:^7.2.1, semver@npm:^7.3.2":
-  version: 7.3.2
-  resolution: "semver@npm:7.3.2"
+  version: 7.3.3
+  resolution: "semver@npm:7.3.3"
+  dependencies:
+    lru-cache: ^4.1.5
   bin:
     semver: bin/semver.js
-  checksum: bceb46d396d039afb5be2b2860bce1b0a43ecbadc72dde7ebe9c56dd9035ca50d9b8e086208ff9bbe53773ebde0bcfc6fc0842d7358398bca7054bb9ced801e3
+  checksum: 18511db56cba32599f135b05738bcb73b973950c992ca89243c2c44f9dd13424acedcfe25af257171949823e4cdf06faf7c807916cd360a99120ebe0ed965966
   languageName: node
   linkType: hard
 
@@ -6530,6 +6549,13 @@ typescript@^4.1.2:
   version: 4.0.1
   resolution: "y18n@npm:4.0.1"
   checksum: e589620d8d668d696e74730a83731a36a8d782c50379386b142e5b8287388a6ebaf28528e84201c68c206629faed71362c79b201b398eb0c69aa1737635678dd
+  languageName: node
+  linkType: hard
+
+"yallist@npm:^2.1.2":
+  version: 2.1.2
+  resolution: "yallist@npm:2.1.2"
+  checksum: f83e3d18eeba68a0276be2ab09260be3f2a300307e84b1565c620ef71f03f106c3df9bec4c3a91e5fa621a038f8826c19b3786804d3795dd4f999e5b6be66ea3
   languageName: node
   linkType: hard
 
