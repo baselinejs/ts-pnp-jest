@@ -27,10 +27,8 @@ Thumbs.db
 nbproject
 .~lock.*
 .buildpath
-.idea
 .project
 .settings
-.vscode
 composer.lock
 *.sublime-workspace
 *.swp
