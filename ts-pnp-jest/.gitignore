@@ -40,7 +40,6 @@ composer.lock
 .nyc_output/
 coverage/
 dist/
-lib/
 node_modules/
 tmp/
 .changelog
