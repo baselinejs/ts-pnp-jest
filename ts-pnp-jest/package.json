@@ -9,7 +9,7 @@
     "prettier-format": "prettier --config .prettierrc '**/*.ts' --write",
     "test": "jest",
     "clean": "rimraf dist/ coverage/",
-    "teardown": "rimraf .yarn/ dist/ coverage/ .pnp.js yarn.lock  .yarnrc.yml"
+    "teardown": "rm -rf dist/ coverage/ yarn.lock  .yarnrc.yml .yarn/ .pnp.js"
   },
   "devDependencies": {
     "@types/jest": "^26.0.15",
