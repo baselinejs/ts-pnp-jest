@@ -1,4 +1,4 @@
-# TS-PNP-JEST
+# BASELINEJS-SYSTEM
 
 Simplest Typescript, Yarn 2, Plug-n-Play, Jest-based app that incorporates our standard components of eslint, prettier.
 
