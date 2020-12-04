@@ -7,7 +7,8 @@
     "lint": "eslint . --ext .ts",
     "build": "tsc -p tsconfig.json",
     "prettier-format": "prettier --config .prettierrc '**/*.ts' --write",
-    "test": "jest",
+    "test": "jest --coverage=false",
+    "coverage": "jest",
     "clean": "rimraf dist/ coverage/",
     "teardown": "rm -rf dist/ coverage/ yarn.lock  .yarnrc.yml .yarn/ .pnp.js"
   },
