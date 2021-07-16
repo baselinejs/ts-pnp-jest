@@ -32,7 +32,7 @@ $ npm run test
 
 Use the `teardown` script in the `package.json` file to remove all generated files that were previously created when installing the app via `yarn` or `npm`. The `teardown` script makes it easier to switch from one package manager to another.  For example, if you wanted to switch back from Yarn 2 PNP to Yarn 1.x:
 
-Remove or set to false, the `installConfig.pnp` value from the `package.json` file as shown below:
+Yarn PNP may set the `installConfig` key pair in the package.json file. To revert to a `node_modules` package manager, make sure this key is removed or set to false as shown below:
 
 ```yml
   "installConfig": {
