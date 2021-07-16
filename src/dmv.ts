@@ -26,12 +26,7 @@ export class Dmv {
     const ticketTime: Date = new Date();
     const linePosition = this.ticketsInLine.length;
     const estimatedWait = this.fibonacci(linePosition + 5);
-    const ticket = new Ticket(
-      person,
-      this.nextTicket,
-      ticketTime,
-      estimatedWait
-    );
+    const ticket = new Ticket(person, this.nextTicket, ticketTime, estimatedWait);
     this.ticketsInLine.push(ticket);
     this.ticketMap[this.nextTicket] = ticket;
     this.nextTicket += 1;

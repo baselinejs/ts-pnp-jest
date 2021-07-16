@@ -45,6 +45,16 @@ NOTE: Yarn PNP sometimes sets key pairs in the `package.json` file that can prev
   "packageManager": "yarn@2.4.2"
 ```
 
+NOTE 2: A husky pre-commit hook is setup to run tests before commits. The `yarn test` section below will need to be changed to `npm run test` if you are switching to NPM.
+
+```yml
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && yarn test"
+    }
+  },
+```
+
 # PNP, JEST and VSCode
 
 In VSCode, if Jest keywords like `describe` and `expect` are showing as undefined, do a "Developer: Reload Window" from the Command Palette to resolve that.
