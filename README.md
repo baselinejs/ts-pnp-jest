@@ -11,17 +11,17 @@ $ yarn install
 $ yarn pnpify --sdk vscode
 ```
 
-# Installing by Yarn 1.x
+# Install (Yarn 1.x)
 
 ```bash
 $ yarn teardown
 $ yarn install
 ```
 
-# Installing by NPM
+# Install (NPM)
 
 ```bash
-$ yarn teardown
+$ npm run teardown
 $ npm install
 ```
 
