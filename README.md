@@ -33,18 +33,16 @@ $ npm run test
 
 Use the `teardown` script in the `package.json` file to remove all generated files that were previously created when installing the app via `yarn` or `npm`. The `teardown` script makes it easier to switch from one package manager to another.  For example, if you wanted to switch back from Yarn 2 PNP to Yarn 1.x:
 
-Yarn PNP sometimes sets key pairs in the `package.json` file that can prevent switching back to Yarn 1.x or NPM. Before installing, make sure neither of these key pairs were added to `package.json`.
+```bash
+$ yarn teardown
+$ yarn install
+```
+
+NOTE: Yarn PNP sometimes sets key pairs in the `package.json` file that can prevent switching back to Yarn 1.x or NPM. Before installing, make sure neither of these key pairs were added to `package.json`.
 
 ```yml
   "installConfig": { "pnp": true },
   "packageManager": "yarn@2.4.2"
-```
-
-Then, run the following shell commands:
-
-```bash
-$ yarn teardown
-$ yarn install
 ```
 
 # PNP, JEST and VSCode
