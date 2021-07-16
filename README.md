@@ -9,6 +9,7 @@ $ yarn teardown # or $ npm run teardown
 $ yarn set version berry # or sources
 $ yarn install
 $ yarn pnpify --sdk vscode
+$ yarn test
 ```
 
 # Install (Yarn 1.x)
@@ -16,6 +17,7 @@ $ yarn pnpify --sdk vscode
 ```bash
 $ yarn teardown # or $ npm run teardown
 $ yarn install
+$ yarn test
 ```
 
 # Install (NPM)
@@ -23,6 +25,7 @@ $ yarn install
 ```bash
 $ npm run teardown
 $ npm install
+$ npm run test
 ```
 
 # Switching Between Package Managers
