@@ -6,7 +6,8 @@ Simplest Typescript, Jest-based app that can be installed with any package manag
 
 ```bash
 $ yarn teardown # or $ npm run teardown
-$ yarn set version berry # or sources
+$ yarn set version berry # Use Yarn 2 PNP - use the GA version by default
+$ yarn set version from sources # optional, switch from GA to latest version
 $ yarn install
 $ yarn pnpify --sdk vscode
 $ yarn test
@@ -32,12 +33,11 @@ $ npm run test
 
 Use the `teardown` script in the `package.json` file to remove all generated files that were previously created when installing the app via `yarn` or `npm`. The `teardown` script makes it easier to switch from one package manager to another.  For example, if you wanted to switch back from Yarn 2 PNP to Yarn 1.x:
 
-Yarn PNP may set the `installConfig` key pair in the package.json file. To revert to a `node_modules` package manager, make sure this key is removed or set to false as shown below:
+Yarn PNP sometimes sets key pairs in the `package.json` file that can prevent switching back to Yarn 1.x or NPM. Before installing, make sure neither of these key pairs were added to `package.json`.
 
 ```yml
-  "installConfig": {
-    "pnp": true
-  }
+  "installConfig": { "pnp": true },
+  "packageManager": "yarn@2.4.2"
 ```
 
 Then, run the following shell commands:
