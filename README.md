@@ -7,7 +7,7 @@ Simplest Typescript, Jest-based app that can be installed with any package manag
 ```bash
 $ yarn teardown # or $ npm run teardown
 $ yarn set version berry # Use Yarn 2 PNP - use the GA version by default
-$ yarn set version from sources # optional, switch from GA to latest version
+$ yarn set version from sources # optional, switches from GA to latest version
 $ yarn install
 $ yarn pnpify --sdk vscode
 $ yarn test
