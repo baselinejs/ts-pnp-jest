@@ -10,7 +10,7 @@
     "test": "jest --coverage=false",
     "coverage": "jest",
     "clean": "rimraf dist/ coverage/",
-    "teardown": "rm -rf dist/ coverage/ yarn.lock package-lock.json .yarnrc.yml .yarn/ .pnp.js node_modules"
+    "teardown": "rm -rf dist/ coverage/ .pnp .yarnrc yarn.lock yarn-error.log package-lock.json .yarnrc.yml .yarn/ .pnp.js node_modules"
   },
   "devDependencies": {
     "@types/jest": "^26.0.15",
