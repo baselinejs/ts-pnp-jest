@@ -17,18 +17,20 @@ Add Husky support:
 $ npx husky-init --yarn2 && yarn
 or
 $ yarn dlx husky-init --yarn2 && yarn
+$ npx husky add .husky/pre-commit "yarn pre-commit"
 ```
 
 # Install (Yarn 1.x)
 
 ```bash
 $ yarn teardown # or $ npm run teardown
-$ yarn install
+$ yarn
 $ yarn test
 ```
 Add Husky support:
 ```bash
-$ npx husky-init && yarn
+# $ npx husky-init && yarn # prepare lifecycle script renders this step unnecessary
+$ npx husky add .husky/pre-commit "yarn pre-commit"
 ```
 
 # Install (NPM)
@@ -40,7 +42,8 @@ $ npm run test
 ```
 Add Husky support:
 ```bash
-$ npx husky-init && npm install
+# $ npx husky-init && npm install # prepare lifecycle script renders this step unnecessary
+$ npx husky add .husky/pre-commit "npm run pre-commit"
 ```
 
 # Switching Between Package Managers
@@ -59,7 +62,10 @@ NOTE: Yarn PNP sometimes sets key pairs in the `package.json` file that can prev
   "packageManager": "yarn@2.4.2"
 ```
 
-NOTE 2: A husky pre-commit hook is setup to run tests before commits. The `yarn test` section below will need to be changed to `npm run test` if you are switching to NPM.
+
+NOTE 2: The .husky directory is not removed by `teardown` because you could have edits in there. If not, you can remove the path manually and run `husky init` to recreate it after reinstall.
+
+NOTE 3: A husky pre-commit hook is setup to run tests before commits. The `yarn test` section below will need to be changed to `npm run test` if you are switching to NPM.
 
 ```yml
   "husky": {
