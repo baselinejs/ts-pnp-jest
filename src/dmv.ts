@@ -9,7 +9,7 @@ export class Dmv {
   constructor(name: string) {
     this.name = name;
     this.nextTicket = 1;
-    this.ticketsInLine = [];
+    this.ticketsInLine = []
     this.ticketMap = new Map();
   }
 

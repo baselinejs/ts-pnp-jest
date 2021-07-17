@@ -20,7 +20,12 @@ $ yarn dlx husky-init --yarn2 && yarn
 $ rm -rf .git/hooks && ln -s ../.husky .git/hooks # GitKraken doesn't use respect Git's core.hooksPath setting
 ```
 
-This will create a file `.husky/pre-commit` that calls `npm test` by default. Edit this file to call `yarn test` instead.
+This will create a file `.husky/pre-commit` that calls `npm test` by default. Edit this file to call `yarn test` instead. Also, for Husky to work in SourceTree and other clients, you'll need to make sure that Husky has the correct path, that matches `which node`:
+
+```rc
+# ~/.huskyrc
+export PATH="/usr/local/bin/:$PATH"
+```
 
 # Install (Yarn 1.x)
 
@@ -36,7 +41,13 @@ Add Husky support:
 $ rm -rf .git/hooks && ln -s ../.husky .git/hooks # GitKraken doesn't use respect Git's core.hooksPath setting
 ```
 
-This will create a file `.husky/pre-commit` that calls `npm test` by default. Edit this file to call `yarn test` instead.
+This will create a file `.husky/pre-commit` that calls `npm test` by default. Edit this file to call `yarn test` instead. Also, for Husky to work in SourceTree and other clients, you'll need to make sure that Husky has the correct path, that matches `which node`:
+
+```rc
+# ~/.huskyrc
+export PATH="/usr/local/bin/:$PATH"
+```
+
 
 # Install (NPM)
 
@@ -50,6 +61,13 @@ Add Husky support:
 ## prepare lifecycle script renders this step unnecessary
 # $ npx husky-init && yarn 
 $ rm -rf .git/hooks && ln -s ../.husky .git/hooks # GitKraken doesn't use respect Git's core.hooksPath setting
+```
+
+This will create a file `.husky/pre-commit` that calls `npm test` by default. Also, for Husky to work in SourceTree and other clients, you'll need to make sure that Husky has the correct path, that matches `which node`:
+
+```rc
+# ~/.huskyrc
+export PATH="/usr/local/bin/:$PATH"
 ```
 
 # Switching Between Package Managers
