@@ -17,6 +17,7 @@ Add Husky support:
 $ npx husky-init --yarn2 && yarn
 or
 $ yarn dlx husky-init --yarn2 && yarn
+$ rm -rf .git/hooks && ln -s ../.husky .git/hooks # GitKraken doesn't use respect Git's core.hooksPath setting
 ```
 
 This will create a file `.husky/pre-commit` that calls `npm test` by default. Edit this file to call `yarn test` instead.
@@ -32,6 +33,7 @@ Add Husky support:
 ```bash
 ## prepare lifecycle script renders this step unnecessary
 # $ npx husky-init && yarn 
+$ rm -rf .git/hooks && ln -s ../.husky .git/hooks # GitKraken doesn't use respect Git's core.hooksPath setting
 ```
 
 This will create a file `.husky/pre-commit` that calls `npm test` by default. Edit this file to call `yarn test` instead.
@@ -47,6 +49,7 @@ Add Husky support:
 ```bash
 ## prepare lifecycle script renders this step unnecessary
 # $ npx husky-init && yarn 
+$ rm -rf .git/hooks && ln -s ../.husky .git/hooks # GitKraken doesn't use respect Git's core.hooksPath setting
 ```
 
 # Switching Between Package Managers
