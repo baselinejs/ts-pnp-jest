@@ -13,6 +13,14 @@ $ yarn pnpify --sdk vscode
 $ yarn test
 ```
 
+## To add Husky Support
+
+```bash
+$ npx husky-init --yarn2 && yarn
+or
+$ yarn dlx husky-init --yarn2 && yarn
+```
+
 # Install (Yarn 1.x)
 
 ```bash
@@ -21,12 +29,22 @@ $ yarn install
 $ yarn test
 ```
 
+## To add Husky Support
+
+```bash
+$ npx husky-init && yarn
+```
+
 # Install (NPM)
 
 ```bash
 $ npm run teardown
 $ npm install
 $ npm run test
+```
+
+```bash
+$ npx husky-init && npm install
 ```
 
 # Switching Between Package Managers
