@@ -8,7 +8,7 @@ Simplest Typescript, Jest-based app that can be installed with any package manag
 $ yarn teardown # or $ npm run teardown
 $ yarn set version berry # Use Yarn 2 PNP - use the GA version by default
 $ yarn set version from sources # optional, switches from GA to latest version
-$ yarn install
+$ yarn
 $ yarn pnpify --sdk vscode
 $ yarn test
 ```
@@ -17,8 +17,9 @@ Add Husky support:
 $ npx husky-init --yarn2 && yarn
 or
 $ yarn dlx husky-init --yarn2 && yarn
-$ npx husky add .husky/pre-commit "yarn pre-commit"
 ```
+
+This will create a file `.husky/pre-commit` that calls `npm test` by default. Edit this file to call `yarn test` instead.
 
 # Install (Yarn 1.x)
 
@@ -29,9 +30,11 @@ $ yarn test
 ```
 Add Husky support:
 ```bash
-# $ npx husky-init && yarn # prepare lifecycle script renders this step unnecessary
-$ npx husky add .husky/pre-commit "yarn pre-commit"
+## prepare lifecycle script renders this step unnecessary
+# $ npx husky-init && yarn 
 ```
+
+This will create a file `.husky/pre-commit` that calls `npm test` by default. Edit this file to call `yarn test` instead.
 
 # Install (NPM)
 
@@ -42,8 +45,8 @@ $ npm run test
 ```
 Add Husky support:
 ```bash
-# $ npx husky-init && npm install # prepare lifecycle script renders this step unnecessary
-$ npx husky add .husky/pre-commit "npm run pre-commit"
+## prepare lifecycle script renders this step unnecessary
+# $ npx husky-init && yarn 
 ```
 
 # Switching Between Package Managers
