@@ -12,9 +12,7 @@ $ yarn install
 $ yarn pnpify --sdk vscode
 $ yarn test
 ```
-
-## To add Husky Support
-
+Add Husky support:
 ```bash
 $ npx husky-init --yarn2 && yarn
 or
@@ -28,9 +26,7 @@ $ yarn teardown # or $ npm run teardown
 $ yarn install
 $ yarn test
 ```
-
-## To add Husky Support
-
+Add Husky support:
 ```bash
 $ npx husky-init && yarn
 ```
@@ -42,7 +38,7 @@ $ npm run teardown
 $ npm install
 $ npm run test
 ```
-
+Add Husky support:
 ```bash
 $ npx husky-init && npm install
 ```
