@@ -26,6 +26,10 @@ This will create a file `.husky/pre-commit` that calls `npm test` by default. Ed
 # ~/.huskyrc
 export PATH="/usr/local/bin/:$PATH"
 ```
+For lint-staged support, add the following section to `package.json`:
+```yml
+  "lint-staged": { "**/*.{js,ts}": [ "yarn dlx eslint --quiet --fix" ] }
+```
 
 # Install (Yarn 1.x)
 
@@ -47,7 +51,10 @@ This will create a file `.husky/pre-commit` that calls `npm test` by default. Ed
 # ~/.huskyrc
 export PATH="/usr/local/bin/:$PATH"
 ```
-
+For lint-staged support, add the following section to `package.json`:
+```yml
+  "lint-staged": { "**/*.{js,ts}": [ "npx eslint --quiet --fix" ] }
+```
 
 # Install (NPM)
 
@@ -68,6 +75,10 @@ This will create a file `.husky/pre-commit` that calls `npm test` by default. Al
 ```rc
 # ~/.huskyrc
 export PATH="/usr/local/bin/:$PATH"
+```
+For lint-staged support, add the following section to `package.json`:
+```yml
+  "lint-staged": { "**/*.{js,ts}": [ "npx eslint --quiet --fix" ] }
 ```
 
 # Switching Between Package Managers
