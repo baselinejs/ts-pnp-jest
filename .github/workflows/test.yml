@@ -26,10 +26,11 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
+    - name: Use Yarn 2.x PnP
+      run: yarn set version berry 
+
     - name: Install Dependencies
-      run: |
-          yarn set version berry 
-          yarn
+      run: yarn
 
     - name: Build Intermediates
       run: yarn build
