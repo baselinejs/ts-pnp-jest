@@ -1,4 +1,4 @@
-# ts-pnp-jest - Module Status: ![CI](https://github.com/pathfinderjs/pathfinder/workflows/CI/badge.svg)
+# ts-pnp-jest ![CI](https://github.com/pathfinderjs/pathfinder/workflows/CI/badge.svg)
 
 Simplest Typescript, Jest-based app that can be installed with any package manager, including yarn 1.x, yarn 2 PNP, or NPM, and incorporates our standard components of eslint, prettier, husky and lint-staged.
 
