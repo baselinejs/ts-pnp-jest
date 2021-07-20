@@ -23,6 +23,6 @@ jobs:
         with:
           args: >
             {
-              "channel": "C028FDNKE1H",
-              "text": "Still works"
+              \"channel\": \"C028FDNKE1H\",
+              \"text\": \"Still works\"
             }
