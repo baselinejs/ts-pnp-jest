@@ -21,7 +21,7 @@ jobs:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
         uses: abinoda/slack-action@master
         with:
-          args: >-
+          args: >
             {
               "channel": "C028FDNKE1H",
               "text": "Still works"
