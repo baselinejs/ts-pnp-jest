@@ -15,12 +15,11 @@ env:
     SLACK_CHANNEL: C028FDNKE1H
 
 jobs:
-  strategy:
-    matrix:
-      node-version: [15.x, 16.x]
-
   setup:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [15.x, 16.x]
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
@@ -37,6 +36,9 @@ jobs:
 
   build:
     needs: setup
+    strategy:
+      matrix:
+        node-version: [15.x, 16.x]
     runs-on: ubuntu-latest
     steps:
     - name: Build Intermediates
@@ -44,6 +46,9 @@ jobs:
 
   test:
     needs: build
+    strategy:
+      matrix:
+        node-version: [15.x, 16.x]
     runs-on: ubuntu-latest
     steps:
       - name: Run Test Suite
