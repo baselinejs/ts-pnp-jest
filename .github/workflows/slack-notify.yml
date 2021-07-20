@@ -9,20 +9,26 @@ on:
   push:
     branches:
       - master
-  pull_request:
-    branches: [ master ]
 
 jobs:
-  notifySlack:
+  notify-dry-run:
     runs-on: ubuntu-latest
     steps:
-      - name: Notify slack
-        env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
-        uses: abinoda/slack-action@master
+      - name: Checkout
+        uses: actions/checkout@v2
         with:
-          args: >
-            {
-              \"channel\": \"C028FDNKE1H\",
-              \"text\": \"Still works\"
-            }
+          fetch-depth: 0 # all history required
+      - name: "Sample Dry Run of Slack Notification"
+        uses: ./
+        with:
+          dry-run: true
+          dump: true
+          token: ${{secrets.SLACK_BOT_TOKEN}}
+          secret: ${{secrets.SLACK_BOT_SIGNING_SECRET}}
+          channel: ${SLACK_CHANNEL}
+          evals: |
+            changelog = git --no-pager log --reverse --color=never --pretty="format:• `%h` %s (%ae)" {{context.payload.before}}...{{context.payload.after}}
+          message: |
+            *Sample Slack Message:*
+            `{{cut context.payload.before 8}}...{{cut context.payload.after 8}}`
+            {{evals.changelog}}
