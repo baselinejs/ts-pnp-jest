@@ -24,6 +24,7 @@ ehthumbs.db
 Thumbs.db
 
 # IDE Specific
+.idea/*
 nbproject
 .~lock.*
 .buildpath

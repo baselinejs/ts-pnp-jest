@@ -23,6 +23,10 @@ describe('Dmv', () => {
     expect(pennysTicket.ticketNumber).toEqual(3);
   });
 
+  it('Ricks Ticket should be ticket 2', () => {
+    expect(ricksTicket.ticketNumber).toEqual(2);
+  });
+
   it('Jacks Ticket should be ticket 4', () => {
     expect(jacksTicket.ticketNumber).toEqual(4);
     expect(jacksTicket.estimatedWait).toEqual(13);
