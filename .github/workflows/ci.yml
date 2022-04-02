@@ -27,4 +27,10 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: yarn
     - run: yarn test
+    - run: yarn teardown
+    - run: yarn set version berry
+    - run: yarn test
+    - run: yarn teardown
+    - run: npm install
+    - run: npm run test
 
