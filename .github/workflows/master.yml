@@ -25,3 +25,10 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: yarn
     - run: yarn test
+    - name: slack-notification
+      uses: skarlso/slack-notification-action
+      with:
+        token: ${{ secrets.SLACK_BOT_TOKEN }} # xoxb-...
+        message: "Master branch build status: :done:"
+        channel: ${{ secrets.SLACK_CHANNEL_ID }}
+        timestamp: ${{ steps.slackstart.outputs.timestamp }}
