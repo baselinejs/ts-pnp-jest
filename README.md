@@ -8,7 +8,7 @@ Simplest Typescript, Jest-based app that can be installed with any package manag
 2. Add travis build status flag
 3. Add publish package support / via gulp?
 
-# Install (Yarn 2.x PNP)
+# Install (Yarn 2.x PNP)  --  [Yarn CLI Reference](https://yarnpkg.com/getting-started/migration#cli-commands)
 
 ```bash
 $ yarn teardown # or $ npm run teardown
@@ -60,7 +60,7 @@ To use Yarn 2.x PnP in Visual Studio Code, your `<project>.code-workspace` file 
     }
 ```
 
-# Install (Yarn 1.x)
+# Install (Yarn 1.x)  --  [Yarn CLI Reference](https://yarnpkg.com/getting-started/migration#cli-commands)
 
 ```bash
 $ yarn teardown # or $ npm run teardown
@@ -101,7 +101,7 @@ $ yarn outdated    # show which packages are out of date
 $ yarn upgrade-interative --latest
 ```
 
-# Install (NPM)
+# Install (NPM)  --  [NPM CLI Reference](https://docs.npmjs.com/cli/v8/commands)
 
 ```bash
 $ npm run teardown
