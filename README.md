@@ -1,4 +1,4 @@
-# ts-pnp-jest [![Production](https://github.com/baselinejs/ts-pnp-jest/actions/workflows/production.yml/badge.svg)](https://github.com/baselinejs/ts-pnp-jest/actions/workflows/production.yml)
+# ts-pnp-jest [![Master](https://github.com/baselinejs/ts-pnp-jest/actions/workflows/master.yml/badge.svg)](https://github.com/baselinejs/ts-pnp-jest/actions/workflows/master.yml) [![CI](https://github.com/baselinejs/ts-pnp-jest/actions/workflows/ci.yml/badge.svg)](https://github.com/baselinejs/ts-pnp-jest/actions/workflows/ci.yml)
 
 Simplest Typescript, Jest-based app that can be installed with any package manager, including yarn 1.x, yarn 2 PNP, or NPM, and incorporates our standard components of eslint, prettier, husky and lint-staged.
 
