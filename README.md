@@ -38,6 +38,17 @@ For lint-staged support, add the following section to `package.json`:
   "lint-staged": { "**/*.{js,ts}": [ "yarn dlx eslint --quiet --fix" ] }
 ```
 
+For Visual Studio Code, your `<project>.code-workspace` file should include the following settings:
+
+```json
+        "settings": {
+            "typescript.tsdk": ".yarn/sdks/typescript/lib",
+            "typescript.enablePromptUseWorkspaceTsdk": true,
+            "jestrunner.enableYarnPnpSupport": true,
+            "jestrunner.detectYarnPnpJestBin": true
+        }
+```
+
 # Install (Yarn 1.x)
 
 ```bash
