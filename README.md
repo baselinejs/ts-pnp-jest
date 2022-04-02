@@ -14,6 +14,7 @@ Simplest Typescript, Jest-based app that can be installed with any package manag
 $ yarn teardown # or $ npm run teardown
 $ yarn set version berry # Use Yarn 2 PNP - use the GA version by default
 $ yarn set version from sources # optional, switches from GA to latest version
+$ yarn add --dev @yarnpkg/pnpify
 $ yarn
 $ yarn pnpify --sdk vscode
 $ yarn test
@@ -44,6 +45,15 @@ $ yarn teardown # or $ npm run teardown
 $ yarn
 $ yarn test
 ```
+NOTE: Upon yarn install, if you see warnings like the following:
+```bash
+warning "@yarnpkg/pnpify > clipanion@3.2.0-rc.10" has unmet peer dependency "typanion@*".
+warning Workspaces can only be enabled in private projects.
+```
+this ^ may be because the package `@yarnpkg/pnpify` is present in the `"devDependencies"` section of the `package.json` file.
+Since we don't need that package unless we are installing via Yarn 2.x instructions above, you can remove that dependency
+and avoid these warnings.
+
 Add Husky support:
 ```bash
 ## prepare lifecycle script renders this step unnecessary
@@ -69,6 +79,15 @@ $ npm run teardown
 $ npm install
 $ npm run test
 ```
+NOTE: Upon yarn install, if you see warnings like the following:
+```bash
+warning "@yarnpkg/pnpify > clipanion@3.2.0-rc.10" has unmet peer dependency "typanion@*".
+warning Workspaces can only be enabled in private projects.
+```
+this ^ may be because the package `@yarnpkg/pnpify` is present in the `"devDependencies"` section of the `package.json` file.
+Since we don't need that package unless we are installing via Yarn 2.x instructions above, you can remove that dependency
+and avoid these warnings.
+
 Add Husky support:
 ```bash
 ## prepare lifecycle script renders this step unnecessary
