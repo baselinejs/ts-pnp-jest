@@ -4,13 +4,14 @@
 name: CI
 
 on:
-  workflow_dispatch:
   push:
-    branches-igore:
-      - master
+    branches:
+      - '*'
+      - '!master'
   pull_request:
-    branches-ignore:
-      - master
+    branches:
+      - '*'
+      - '!master'
 
 jobs:
   build:
