@@ -38,15 +38,26 @@ For lint-staged support, add the following section to `package.json`:
   "lint-staged": { "**/*.{js,ts}": [ "yarn dlx eslint --quiet --fix" ] }
 ```
 
+To upgrade `package.json` dependencies to the latest package versions, you can run:
+
+```bash
+$ yarn up  # non-interactive,
+# Or, for interactive:
+$ yarn plugin import interactive-tools
+$ yarn upgrade-interative
+```
+
 To use Yarn 2.x PnP in Visual Studio Code, your `<project>.code-workspace` file should include the following settings:
 
 ```json
+    {
         "settings": {
             "typescript.tsdk": ".yarn/sdks/typescript/lib",
             "typescript.enablePromptUseWorkspaceTsdk": true,
             "jestrunner.enableYarnPnpSupport": true,
             "jestrunner.detectYarnPnpJestBin": true
         }
+    }
 ```
 
 # Install (Yarn 1.x)
@@ -83,6 +94,13 @@ For lint-staged support, add the following section to `package.json`:
   "lint-staged": { "**/*.{js,ts}": [ "npx eslint --quiet --fix" ] }
 ```
 
+To upgrade `package.json` dependencies to the latest package versions, you can run:
+
+```bash
+$ yarn outdated    # show which packages are out of date
+$ yarn upgrade-interative --latest
+```
+
 # Install (NPM)
 
 ```bash
@@ -115,6 +133,12 @@ export PATH="/usr/local/bin/:$PATH"
 For lint-staged support, add the following section to `package.json`:
 ```yml
   "lint-staged": { "**/*.{js,ts}": [ "npx eslint --quiet --fix" ] }
+```
+To upgrade `package.json` dependencies to the latest package versions, you have to install an npm module globally. `npm-check` and `npm-upgrade` are two good options:
+
+```bash
+$ npm install -g npm-check   or    $ npm install -g npm-upgrade
+$ npm-check -u               or    $ npm-upgrade
 ```
 
 # Switching Between Package Managers
