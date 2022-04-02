@@ -38,7 +38,7 @@ For lint-staged support, add the following section to `package.json`:
   "lint-staged": { "**/*.{js,ts}": [ "yarn dlx eslint --quiet --fix" ] }
 ```
 
-For Visual Studio Code, your `<project>.code-workspace` file should include the following settings:
+To use Yarn 2.x PnP in Visual Studio Code, your `<project>.code-workspace` file should include the following settings:
 
 ```json
         "settings": {
