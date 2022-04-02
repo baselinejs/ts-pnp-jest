@@ -13,10 +13,10 @@ Simplest Typescript, Jest-based app that can be installed with any package manag
 ```bash
 $ yarn teardown # or $ npm run teardown
 $ yarn set version berry # Use Yarn 2 PNP - use the GA version by default
-$ yarn set version from sources # optional, switches from GA to latest version
-$ yarn add --dev @yarnpkg/pnpify
+$ yarn set version from sources # optional, switches from GA to latest version.
+                                # NOTE: You must do both `yarn set` commands to get latest version
 $ yarn
-$ yarn pnpify --sdk vscode
+$ yarn dlx @yarnpkg/sdks vscode
 $ yarn test
 ```
 Add Husky support:
