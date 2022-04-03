@@ -5,16 +5,21 @@ env:
 
 on:
   workflow_run:
+    workflows: [Master, CI]
     types:
       - completed
 
 jobs:
-  slack-notification-with-optional-parameters:
+  on-success:
     runs-on: ubuntu-latest
-    name: Sends a message to Slack when a push, a pull request or an issue is made
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
-      - name: Send message to Slack API
-        id: slack
+      - run: echo 'The triggering workflow passed'
+  on-failure:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    steps:
+      - name: Build Failed! Send message to Slack API
         uses: slackapi/slack-github-action@v1.18.0
         with:
           channel-id: ${{ secrets.SLACK_BOT_CHANNEL_ID }}
