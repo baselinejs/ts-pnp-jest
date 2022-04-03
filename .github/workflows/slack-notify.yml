@@ -1,3 +1,11 @@
+#
+# Slack Notifications
+#  - To use slack notifications, you must create a slack bot token and invite that bot into the slack channel you want
+#    it to post into. Once you've obtained the slack bot token and slack channel ID, you'll need to add those as secrets
+#    within your Github organization or repo. The instructions for all this can be found here:
+#      + https://github.com/slackapi/slack-github-action
+#      + https://api.slack.com/apps
+
 name: Slack Notifications
 
 env:
