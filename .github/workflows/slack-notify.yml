@@ -19,10 +19,11 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'failure' }}
     steps:
+      - run: echo 'The triggering workflow Failed:  ${{ github.event.workflow_run }}'
       - name: Display workflow_run context
         uses: actions/github-script@v6
         with:
-          script: console.log(github.event.workflow_run)
+          script: console.log(context)
       - name: Build Failed! Send message to Slack API
         uses: slackapi/slack-github-action@v1.18.0
         with:
