@@ -27,7 +27,7 @@ jobs:
                   type: "section",
                   text: {
                     type: "mrkdwn",
-                    text: `Build for ${process.env.AS_REPO}`
+                    text: "Build for ${{ env.URL}\nrepoName: ${{ github.event.repository.full_name }}"
                   }
                 }
               ]
