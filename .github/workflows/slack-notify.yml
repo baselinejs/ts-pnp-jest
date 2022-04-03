@@ -24,10 +24,10 @@ jobs:
                   }
                 },
                 {
-                  type: "section",
-                  text: {
-                    type: "mrkdwn",
-                    text: "Build for ${{ env.URL }}\nrepoName: ${{ github.event.repository.full_name }}"
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "Build for ${{ env.URL }}\nrepoName: ${{ github.event.repository.full_name }}"
                   }
                 }
               ]
