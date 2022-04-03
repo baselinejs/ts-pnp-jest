@@ -60,7 +60,7 @@ jobs:
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "*Latest Commit:*\n<${{ github.event.workflow_run.head_repository.html_url }}/commit/${{ github.event.workflow_run.head_sha }}|${{ github.event.workflow_run.head_sha }}>"
+                      "text": "*Commit Message:*\n<${{ github.event.workflow_run.head_repository.html_url }}/commit/${{ github.event.workflow_run.head_sha }}|${{ github.event.workflow_run.head_commit.message }}>"
                     }
                   ]
                 },
