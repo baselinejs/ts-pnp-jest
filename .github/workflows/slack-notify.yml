@@ -68,8 +68,8 @@ jobs:
                 {
                   "type": "section",
                   "text": {
-                    "type": "plain_text",
-                    "text": "Commit Message:  ${{ github.event.workflow_run.head_commit.message }}"
+                    "type": "mrkdwn",
+                    "text": "*Commit Message*:\n${{ github.event.workflow_run.head_commit.message }}"
                   }
                 }
               ]
