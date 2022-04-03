@@ -1,34 +1,24 @@
 name: Slack Notifications
 
 env:
-    SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
-    SLACK_CHANNEL: C028FDNKE1H
+  SLACK_BOT: ${{ secrets.SLACK_BOT_TOKEN }}
+  SLACK_CHANNEL: ${{ secrets.SLACK_BOT_CHANNEL_ID }}
 
-on:
-  workflow_dispatch:
-  push:
-    branches:
-      - master
+on: [workflow_dispatch, push, pull_request, issues]
 
 jobs:
-  notify-dry-run:
+  slack-notification-with-optional-parameters:
     runs-on: ubuntu-latest
+    name: Sends a message to Slack when a push, a pull request or an issue is made
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+      - name: Send message to Slack API
+        uses: archive/github-actions-slack@v2.4.0
+        id: notify
         with:
-          fetch-depth: 0 # all history required
-      - name: "Sample Dry Run of Slack Notification"
-        uses: ./
-        with:
-          dry-run: true
-          dump: true
-          token: ${{secrets.SLACK_BOT_TOKEN}}
-          secret: ${{secrets.SLACK_BOT_SIGNING_SECRET}}
-          channel: ${SLACK_CHANNEL}
-          evals: |
-            changelog = git --no-pager log --reverse --color=never --pretty="format:• `%h` %s (%ae)" {{context.payload.before}}...{{context.payload.after}}
-          message: |
-            *Sample Slack Message:*
-            `{{cut context.payload.before 8}}...{{cut context.payload.after 8}}`
-            {{evals.changelog}}
+          slack-bot-user-oauth-access-token: ${SLACK_BOT}
+          slack-channel: ${SLACK_CHANNEL}
+          slack-text: Hello! Something is burning! Or not...
+          slack-optional-icon_emoji: ":fire:"
+          slack-optional-as_user: false
+      - name: Result from "Send Message"
+        run: echo "The result was ${{ steps.notify.outputs.slack-result }}"
