@@ -1,9 +1,5 @@
 name: Slack Notifications
 
-env:
-  SLACK_BOT: ${{ secrets.SLACK_BOT_TOKEN }}
-  SLACK_CHANNEL: ${{ secrets.SLACK_BOT_CHANNEL_ID }}
-
 on: [workflow_dispatch, push, pull_request, issues]
 
 jobs:
@@ -15,8 +11,8 @@ jobs:
         uses: archive/github-actions-slack@v2.4.0
         id: notify
         with:
-          slack-bot-user-oauth-access-token: ${SLACK_BOT}
-          slack-channel: ${SLACK_CHANNEL}
+          slack-bot-user-oauth-access-token: ${{ secrets.SLACK_BOT_TOKEN }}
+          slack-channel: ${{ secrets.SLACK_BOT_CHANNEL_ID }}
           slack-text: Hello! Something is burning! Or not...
           slack-optional-icon_emoji: ":fire:"
           slack-optional-as_user: false
