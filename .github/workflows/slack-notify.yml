@@ -38,14 +38,21 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "Build Result: ${{ job.status }}"
+                    "text": "BUILD FAILED! -- ${{ github.event.workflow_run.conclusion }}"
                   }
                 },
                 {
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "URL: ${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
+                    "text": "URL: ${{ github.event.workflow_run.html_url }}"
+                  }
+                },
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "Possible Offending Commit: ${{ github.event.workflow_run.head_commit.url }}"
                   }
                 }
               ]
