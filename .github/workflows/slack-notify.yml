@@ -27,7 +27,7 @@ jobs:
                   type: "section",
                   text: {
                     type: "mrkdwn",
-                    text: "Build for ${{ env.URL}\nrepoName: ${{ github.event.repository.full_name }}"
+                    text: "Build for ${{ env.URL }}\nrepoName: ${{ github.event.repository.full_name }}"
                   }
                 }
               ]
