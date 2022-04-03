@@ -3,7 +3,10 @@ name: Slack Notifications
 env:
   SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
 
-on: [workflow_dispatch, push, pull_request, issues]
+on:
+  workflow_run:
+    types:
+      - completed
 
 jobs:
   slack-notification-with-optional-parameters:
