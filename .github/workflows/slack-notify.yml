@@ -31,14 +31,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "Repository: ${{ github.event.repository.full_name }}"
-                  }
-                },
-                {
-                  "type": "section",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": "BUILD FAILED! -- ${{ github.event.workflow_run.conclusion }}"
+                    "text": "BUILD FAILED FOR: ${{ github.event.repository.full_name }}  BRANCH:  ${{ github.event.workflow_run.head_branch }}"
                   }
                 },
                 {
@@ -52,7 +45,14 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "Possible Offending Commit: ${{ github.event.workflow_run.head_commit.url }}"
+                    "text": "Latest Commiter: ${{ github.event.workflow_run.head_commit.author.name }}"
+                  }
+                },
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "Commit URL: ${{ github.event.workflow_run.head_repository.commits_url }}\nComments: ${{ github.event.workflow_run.head_repository.comments_url }}"
                   }
                 }
               ]
