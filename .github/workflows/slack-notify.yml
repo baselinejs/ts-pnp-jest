@@ -20,14 +20,21 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "GitHub Action build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
+                    "text": "Repository: ${{ github.event.repository.full_name }}"
                   }
                 },
                 {
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "Build for ${{ env.URL }}\nrepoName: ${{ github.event.repository.full_name }}"
+                    "text": "Build Result: ${{ job.status }}"
+                  }
+                },
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "URL: ${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
                   }
                 }
               ]
