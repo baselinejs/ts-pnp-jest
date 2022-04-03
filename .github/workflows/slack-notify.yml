@@ -52,7 +52,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "Commit URL: ${{ github.event.workflow_run.head_repository.commits_url }}\nComments: ${{ github.event.workflow_run.head_repository.comments_url }}"
+                    "text": "Latest Commit: ${{ github.event.workflow_run.head_repository.commits_url }}/${{ github.event.workflow_run.head_sha }}"
                   }
                 }
               ]
