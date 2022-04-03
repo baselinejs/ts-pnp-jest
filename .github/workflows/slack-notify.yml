@@ -1,5 +1,8 @@
 name: Slack Notifications
 
+env:
+  SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+
 on: [workflow_dispatch, push, pull_request, issues]
 
 jobs:
@@ -39,8 +42,3 @@ jobs:
                 }
               ]
             }
-
-        env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
-      - name: Result from "Send Message"
-        run: echo "The result was ${{ steps.slack.outputs.slack-result }}"
