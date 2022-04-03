@@ -22,7 +22,7 @@ jobs:
       - name: Display workflow_run context
         uses: actions/github-script@v6
         with:
-          script: console.log(context)
+          script: console.log(JSON.stringify(context, null, 2))
       - name: Build Failed! Send message to Slack API
         uses: slackapi/slack-github-action@v1.18.0
         with:
