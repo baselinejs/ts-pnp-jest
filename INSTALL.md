@@ -67,18 +67,24 @@ Since we don't need that package unless we are installing via Yarn 2.x instructi
 and avoid these warnings.
 
 Add Husky support:
+After `yarn install`, install and configure Husky as follows:
 ```bash
-## prepare lifecycle script renders this step unnecessary
-# $ npx husky-init && yarn 
-$ rm -rf .git/hooks && ln -s ../.husky .git/hooks # GitKraken doesn't use respect Git's core.hooksPath setting
+$ npx husky install
+$ npx husky add .husky/pre-commit "npx lint-staged"
+$ npx husky add .husky/pre-push "yarn test"
 ```
 
-This will create a file `.husky/pre-commit` that calls `npm test` by default. Edit this file to call `yarn test` instead. Also, for Husky to work in SourceTree and other clients, you'll need to make sure that Husky has the correct path, that matches `which node`:
 
+For Husky to work in SourceTree and other clients, you'll need to make sure that Husky has the correct path, that matches `which node`:
 ```rc
 # ~/.huskyrc
 export PATH="/usr/local/bin/:$PATH"
 ```
+Also, GitKraken may have some issues with Husky because it doesn't use respect Git's core.hooksPath setting.  Workaround is:
+```bash
+$ rm -rf .git/hooks && ln -s .husky .git/hooks # GitKraken doesn't use respect Git's core.hooksPath setting
+```
+
 For lint-staged support, add the following section to `package.json`:
 ```yml
   "lint-staged": { "**/*.{js,ts}": [ "npx eslint --quiet --fix" ] }
