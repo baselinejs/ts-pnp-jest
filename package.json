@@ -1,8 +1,10 @@
 {
   "name": "@baselinejs/ts-pnp-jest",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.ts",
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "repository": "https://github.com/baselinejs/ts-pnp-jest.git",
   "license": "MIT",
   "scripts": {
@@ -41,5 +43,9 @@
     "*.{js,ts,tsx}": [
       "eslint --fix"
     ]
+  },
+  "dependencies": {
+    "global": "^4.4.0",
+    "standard-version": "^9.3.2"
   }
 }
