@@ -1,6 +1,6 @@
 {
   "name": "@baselinejs/ts-pnp-jest",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "main": "index.ts",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
