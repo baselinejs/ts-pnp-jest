@@ -9,24 +9,6 @@ $ yarn
 $ yarn dlx @yarnpkg/sdks vscode
 $ yarn test
 ```
-Add Husky support:
-```bash
-$ npx husky-init --yarn2 && yarn
-or
-$ yarn dlx husky-init --yarn2 && yarn
-$ rm -rf .git/hooks && ln -s ../.husky .git/hooks # GitKraken doesn't use respect Git's core.hooksPath setting
-```
-
-This will create a file `.husky/pre-commit` that calls `npm test` by default. Edit this file to call `yarn test` instead. Also, for Husky to work in SourceTree and other clients, you'll need to make sure that Husky has the correct path, that matches `which node`:
-
-```rc
-# ~/.huskyrc
-export PATH="/usr/local/bin/:$PATH"
-```
-For lint-staged support, add the following section to `package.json`:
-```yml
-  "lint-staged": { "**/*.{js,ts}": [ "yarn dlx eslint --quiet --fix" ] }
-```
 
 To upgrade `package.json` dependencies to the latest package versions, you can run:
 
@@ -66,30 +48,6 @@ this ^ may be because the package `@yarnpkg/pnpify` is present in the `"devDepen
 Since we don't need that package unless we are installing via Yarn 2.x instructions above, you can remove that dependency
 and avoid these warnings.
 
-Add Husky support:
-After `yarn install`, install and configure Husky as follows:
-```bash
-$ npx husky install
-$ npx husky add .husky/pre-commit "npx lint-staged"
-$ npx husky add .husky/pre-push "yarn test"
-```
-
-
-For Husky to work in SourceTree and other clients, you'll need to make sure that Husky has the correct path, that matches `which node`:
-```rc
-# ~/.huskyrc
-export PATH="/usr/local/bin/:$PATH"
-```
-Also, GitKraken may have some issues with Husky because it doesn't use respect Git's core.hooksPath setting.  Workaround is:
-```bash
-$ rm -rf .git/hooks && ln -s .husky .git/hooks # GitKraken doesn't use respect Git's core.hooksPath setting
-```
-
-For lint-staged support, add the following section to `package.json`:
-```yml
-  "lint-staged": { "**/*.{js,ts}": [ "npx eslint --quiet --fix" ] }
-```
-
 To upgrade `package.json` dependencies to the latest package versions, you can run:
 
 ```bash
@@ -113,23 +71,6 @@ this ^ may be because the package `@yarnpkg/pnpify` is present in the `"devDepen
 Since we don't need that package unless we are installing via Yarn 2.x instructions above, you can remove that dependency
 and avoid these warnings.
 
-Add Husky support:
-```bash
-## prepare lifecycle script renders this step unnecessary
-# $ npx husky-init && yarn 
-$ rm -rf .git/hooks && ln -s ../.husky .git/hooks # GitKraken doesn't use respect Git's core.hooksPath setting
-```
-
-This will create a file `.husky/pre-commit` that calls `npm test` by default. Also, for Husky to work in SourceTree and other clients, you'll need to make sure that Husky has the correct path, that matches `which node`:
-
-```rc
-# ~/.huskyrc
-export PATH="/usr/local/bin/:$PATH"
-```
-For lint-staged support, add the following section to `package.json`:
-```yml
-  "lint-staged": { "**/*.{js,ts}": [ "npx eslint --quiet --fix" ] }
-```
 To upgrade `package.json` dependencies to the latest package versions, you have to install an npm module globally. `npm-check` and `npm-upgrade` are two good options:
 
 ```bash
@@ -156,15 +97,6 @@ NOTE: Yarn PNP sometimes sets key pairs in the `package.json` file that can prev
 
 NOTE 2: The .husky directory is not removed by `teardown` because you could have edits in there. If not, you can remove the path manually and run `husky init` to recreate it after reinstall.
 
-NOTE 3: A husky pre-commit hook is setup to run tests before commits. The `yarn test` section below will need to be changed to `npm run test` if you are switching to NPM.
-
-```yml
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged && yarn test"
-    }
-  },
-```
 
 # PNP, JEST and VSCode
 
@@ -177,7 +109,6 @@ Module System:  Yarn 2 Plug-n-Plug (berry)
 Test Runner:  Jest
 Code Quality:  ESLint, Prettier
 
-
 # VS-Code
 
 VS-Code Plugins used:
@@ -186,10 +117,4 @@ VS-Code Plugins used:
 2. arcanis.vscode-zipfs
 3. dbaeumer.vscode-eslint
 4. esbenp.prettier-vscode
-
-# Not Yet Implemented / To Do
-
-1. Add github workflow / CI integration
-2. Add travis build status flag
-3. Add publish package support / via gulp?
 

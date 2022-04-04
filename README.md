@@ -4,7 +4,11 @@ Simplest Typescript, Jest-based app that can be installed with any package manag
 
 # Install & Test
 
-For Yarn, Npm and Yarn PnP install instructions, see the [INSTALL](INSTALL.md) instructions.
+For Yarn, Npm and Yarn PnP install instructions, see the [INSTALL](docs/install.md) instructions.
+
+# Husky & Git Commit Hooks
+
+See the [Husky Commit Hooks](docs/husky.md) for instructions on setting up Husky, Lint-Staged and Commitlint.
 
 # To Do
 
