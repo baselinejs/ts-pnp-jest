@@ -1,0 +1,87 @@
+#
+# Slack Notifications
+#  - To use slack notifications, you must create a slack bot token and invite that bot into the slack channel you want
+#    it to post into. Once you've obtained the slack bot token and slack channel ID, you'll need to add those as secrets
+#    within your Github organization or repo. The instructions for all this can be found here:
+#      + https://github.com/slackapi/slack-github-action
+#      + https://api.slack.com/apps
+
+name: Slack Notifications
+
+env:
+  SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+
+on:
+  workflow_run:
+    workflows: [Master, CI]
+    types:
+      - completed
+
+jobs:
+  on-success:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - run: echo 'The triggering workflow passed'
+  on-failure:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    steps:
+      - name: Set outputs
+        id: vars
+        run: echo "::set-output name=sha_short::$(echo ${GITHUB_SHA} | cut -c1-8)"
+      - name: Display workflow_run context
+        uses: actions/github-script@v6
+        with:
+          script: console.log(JSON.stringify(context, null, 2))
+      - name: Build Failed! Send message to Slack API
+        uses: slackapi/slack-github-action@v1.18.0
+        with:
+          channel-id: ${{ secrets.SLACK_BOT_CHANNEL_ID }}
+          payload: |
+            {
+              "text": "Build Failed! <${{ github.event.workflow_run.html_url }}",
+              "blocks": [
+                {
+                  "type": "header",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "Build Failed!",
+                    "emoji": true
+                  }
+                },
+            	{
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Repository:*\n<${{ github.event.workflow_run.head_repository.html_url }}|${{ github.event.repository.full_name }}>"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Branch Failing:*\n${{ github.event.workflow_run.head_branch }} -- <${{ github.event.workflow_run.html_url }}|build failure>"
+                    }
+                  ]
+                },
+            	{
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Latest Commiter:*\n${{ github.event.workflow_run.head_commit.author.name }}"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Latest Commit:*\n<${{ github.event.workflow_run.head_repository.html_url }}/commit/${{ github.event.workflow_run.head_sha }}|${{ steps.vars.outputs.sha_short }}>"
+                    }
+                  ]
+                },
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "*Commit Message*:\n${{ github.event.workflow_run.head_commit.message }}"
+                  }
+                }
+              ]
+            }
